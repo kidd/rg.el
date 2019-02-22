@@ -130,7 +130,7 @@ search for quick reruns with refined parameters.
 Search history is stored per result buffer. It's possible to navigate back
 and forward in earlier searches with `rg-back-history` and
 `rg-forward-history`. Whenever a search is modified or a new is
-created future searches are cleared.
+created (with different parameters) future searches are cleared.
 
 ## Customize
 

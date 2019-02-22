@@ -37,10 +37,12 @@
 
 (defun rg-history-push (item instance)
   "Push a new ITEM to the rg-history INSTANCE."
-  (rg-when-let (present (rg-history-present instance))
-    (push present (rg-history-past instance)))
-  (setf (rg-history-present instance) item)
-  (setf (rg-history-future instance) nil))
+  (let ((present (rg-history-present instance)))
+    (when (not (equal present item))
+      (when present
+        (push present (rg-history-past instance)))
+      (setf (rg-history-present instance) item)
+      (setf (rg-history-future instance) nil))))
 
 (defun rg-history-back (instance)
   "Move back in the rg-history INSTANCE.
